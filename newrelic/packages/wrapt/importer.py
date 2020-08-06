@@ -197,7 +197,7 @@ class ImportHookFinder:
                 # real loader to import the module and invoke the
                 # post import hooks.
 
-                loader = importlib.find_loader(fullname, path)
+                loader = importlib.util.find_spec(fullname, path).loader
 
                 if loader:
                     return _ImportHookChainedLoader(loader)
